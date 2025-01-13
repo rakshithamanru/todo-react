@@ -3,7 +3,8 @@ import './style.css'
 function App() {
   return (
     <>
-      <h1>TO-DO App</h1>
+      <h1 class="app-heading">To-Do App</h1>
+
       <Home/>
     </>
     

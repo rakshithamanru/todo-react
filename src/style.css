@@ -1,126 +1,226 @@
-/* General styling for the page */
+/* General body styling */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F4F7F6;
     margin: 0;
     padding: 0;
+    background: linear-gradient(135deg, #D1D646, #EDF2EF);  /* Gradient background */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh;
-    color: #333333;
-}
-
-/* Form container styling */
-form {
-    background-color: #ffffff;
-    padding: 25px 35px;
-    border-radius: 12px;
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.1);
-    width: 520px;
-    
+    flex-direction: column;
+    height: 100vh;
+    color: #212738;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-form:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.2);
+
+
+/* To-Do App Heading */
+.app-heading {
+    font-size: 36px;
+    background: linear-gradient(to right, #F97068, #D1D646);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
 }
 
-/* Container for input and button - to make them inline */
+/* Form layout */
 .form-input-container {
     display: flex;
-    justify-content: space-between; /* Space between input and button */
-    width: 100%;
+    justify-content: space-between;
     margin-bottom: 20px;
+    width: 80%;
 }
 
-/* Input field styling */
-input[type="text"] {
-    width: 80%; /* Takes up most of the space */
+/* Input box styling */
+input {
+    width: 75%;
     padding: 12px;
-    border: 1px solid #ccc;
+    font-size: 16px;
+    border: 1px solid #212738;
     border-radius: 8px;
-    font-size: 16px;
-    color: #333333;
-    box-sizing: border-box;
-    transition: border 0.3s ease;
-}
-
-/* Input field focus effect */
-input[type="text"]:focus {
-    border: 1px solid #4CAF50;
     outline: none;
+    transition: border 0.3s ease;
+    background-color: #EDF2EF;
 }
 
-/* Add Task button styling (only first button) */
+input:focus {
+    border: 2px solid #F97068;
+    box-shadow: 0 0 8px rgba(249, 112, 104, 0.5);
+}
+
+/* Add task button styling */
 .add-task-btn {
-    padding: 12px 25px;
+    padding: 12px 20px;
     font-size: 16px;
+    background-color: #F97068;
+    color: #EDF2EF;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    transition: all 0.3s ease;
-    margin-top: 0; /* Removes extra margin */
+    transition: background-color 0.3s ease;
 }
 
-/* Hover effect for Add Task button */
 .add-task-btn:hover {
-    background-color: #388E3C;
+    background-color: #D16050;
 }
 
-/* Styling for other task buttons (To-Do, Ongoing, Completed) */
-.task-btn {
-    width: 30%;
-    background-color: #607D8B; /* Blue-gray color */
-    color: white;
-    font-size: 14px;
+/* Task sections layout */
+.task-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.task-section > div {
+    width: 35%;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(145deg, #D1D646, #EDF2EF);
+}
+
+.task-section h2 {
+    text-align: center;
+    font-size: 22px;
+    color: #212738;
+    border-bottom: 2px solid #F97068;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Task items styling */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
     padding: 10px;
-    margin: 8px 2px;
-    transition: all 0.3s ease;
-    border: none;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    background-color: #EDF2EF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+    background-color: #F2F4CD;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+li span {
+    flex-grow: 1;
+    word-wrap: break-word;
+    font-size: 16px;
+    color: #212738;
+    max-width: calc(100% - 60px);
+}
+
+/* Task actions (dropdown + delete icon) */
+.task-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.task-dropdown {
+    max-width: 100px;
+    flex-shrink: 0;
+    padding: 6px;
     border-radius: 8px;
+    border: 1px solid #212738;
+    background-color: #DCE5DF;
+    color: #212738;
+    cursor: pointer;
+    font-size: 12px;
 }
 
-/* Hover effect for task category buttons */
-.task-btn:hover {
-    background-color: #455A64; /* Darker shade on hover */
+.task-dropdown:hover {
+    background-color: #EDF2EF;
+    color: #212738;
 }
 
-/* Form responsiveness */
+.delete-icon {
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    mask: url('https://cdn-icons-png.flaticon.com/512/1214/1214428.png') no-repeat center;
+    mask-size: contain;
+    -webkit-mask: url('https://cdn-icons-png.flaticon.com/512/1214/1214428.png') no-repeat center;
+    -webkit-mask-size: contain;
+    background-color: #F97068;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-icon:hover {
+    background-color: #D16050;
+}
+
+.scrollable-task-list {
+    max-height: 200px;
+
+    overflow-y: auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clear-all-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #F97068;
+    color: #EDF2EF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clear-all-btn:hover {
+    background-color: #D16050;
+}
+
+
+
 @media (max-width: 800px) {
-    form {
-        width: 100%;
+    .task-section {
+        flex-direction: column;
+        gap: 15px;
     }
 
-    input[type="text"] {
-        font-size: 14px;
-    }
-
-    .task-btn {
-        width: 45%; /* Adjust width for smaller screens */
+    .task-section > div {
+        
+        height: 400px;
+        overflow: hidden;
     }
 
     .form-input-container {
-        flex-direction: column; /* Stack input and button vertically on small screens */
+        flex-direction: column;
+        width: 100%;
     }
 
-    .form-input-container input {
-        width: 100%; /* Make input box full width on smaller screens */
+    input {
+        width: 100%;
     }
 
-    .form-input-container button {
-        width: 100%; /* Make button full width on smaller screens */
+    .add-task-btn {
+        width: 100%;
         margin-top: 10px;
     }
 }
-h1 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333333;
-    justify-self: center;
-}
-
